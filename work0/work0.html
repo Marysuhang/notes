@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-color: #1b7ab9;
+            --secondary-color: #275079;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #34495e;
+            --text-color: #333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* 头部样式 */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .title {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* 主要内容布局 */
+        .resume-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+        }
+        
+        /* 侧边栏样式 */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+        
+        .card h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-color);
+        }
+        
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .contact-info i {
+            width: 20px;
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+        
+        .skills-list {
+            list-style: none;
+        }
+        
+        .skills-list li {
+            margin-bottom: 10px;
+        }
+        
+        .skill-bar {
+            background-color: var(--light-color);
+            border-radius: 5px;
+            height: 8px;
+            margin-top: 5px;
+        }
+        
+        .skill-level {
+            height: 100%;
+            border-radius: 5px;
+            background-color: var(--primary-color);
+        }
+        
+        /* 主内容区域样式 */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .about p {
+            margin-bottom: 15px;
+        }
+        
+        .experience-item, .education-item {
+            margin-bottom: 20px;
+        }
+        
+        .experience-item h3, .education-item h3 {
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+        
+        .date {
+            color: var(--primary-color);
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        /* 项目经历样式 */
+        .project-item {
+            margin-bottom: 15px;
+            border: 1px solid var(--light-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .project-header {
+            padding: 15px;
+            background-color: var(--light-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .project-header h3 {
+            margin: 0;
+            color: var(--secondary-color);
+        }
+        
+        .project-content {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+        
+        .project-content.active {
+            padding: 15px;
+            max-height: 500px;
+        }
+        
+        .project-content ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .resume-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header {
+                padding: 30px 0;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* 图标样式 */
+        .icon {
+            display: inline-block;
+            width: 20px;
+            text-align: center;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://raw.githubusercontent.com/Marysuhang/notes/refs/heads/main/githeadpicture.jpg" alt="个人照片" class="profile-img">
+            <h1>苏航</h1>
+            <p class="title">硕士研究生</p>
+        </header>
+        
+        <div class="resume-grid">
+            <aside class="sidebar">
+                <section class="card contact-info">
+                    <h2>联系方式</h2>
+                    <p><span class="icon">📱</span> 188-1007-5325</p>
+                    <p><span class="icon">✉️</span> 1982537076@qq.com</p>
+                    <p><span class="icon">🏠</span> 安徽省合肥市</p>
+                    <p><span class="icon">🔗</span> github.com/Marysuhang</p>
+                </section>
+                
+                <section class="card skills">
+                    <h2>专业技能</h2>
+                    <ul class="skills-list">
+                        <li>
+                            <span>HTML/CSS</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 85%;"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <span>python</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 85%;"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <span>Linux</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 80%;"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+                
+                <section class="card education">
+                    <h2>教育背景</h2>
+                    <div class="education-item">
+                        <h3>中国科学技术大学</h3>
+                        <p class="date">2023-至今</p>
+                        <p>物理化学 硕士</p>
+                        <p class="date"> </p>
+                        <h3>北京科技大学</h3>
+                        <p class="date">2019-2023</p>
+                        <p>应用化学 本科</p>
+                    </div>
+                </section>
+            </aside>
+            
+            <main class="main-content">
+                <section class="card about">
+                    <h2>关于我</h2>
+                    <p>我是一名物理化学专业的在读硕士生，主要研究方向是计算化学。</p>
+                    <p>热爱学习新技术，具有良好的团队协作能力和问题解决能力。</p>
+                </section>
+                
+                <section class="card experience">
+                    <h2>研究经历</h2>
+                    <div class="experience-item">
+                        <h3>中国科学技术大学精准智能化学全国重点实验室 - 材料计算方向研究生</h3>
+                        <p class="date">2023年9月 - 至今</p>
+                        <p>开展钙钛矿材料缺陷形成机理的第一性原理计算与分子动力学模拟，系统评估点缺陷对材料电子结构、稳定性及光电性能的影响，运用 VASP 等软件构建缺陷模型，对晶体结构进行动态分析，揭示钙钛矿缺陷电子态在室温下的动态演化机制，阐明缺陷态能级涨落与局部结构动力学的关联。</p>
+                    </div>
+                </section>
+                
+                <section class="card projects">
+                    <h2>实习经历</h2>
+                    <div class="project-item">
+                        <div class="project-header">
+                            <h3>国家环境分析测试中心</h3>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div class="project-content">
+                            <p class="date">2022年3月 - 2023年6月</p>
+                            <p>参与新污染物调查专项，协助进行河流水质样品中痕量有机污染物（包括PFAS、药物与个人护理品、内分泌干扰物等）的前处理及仪器分析工作。运用固相萃取（SPE）等技术进行样品预处理，并操作液相色谱-质谱联用（LC-MS/MS）等设备完成高灵敏度定性与定量检测。</p>
+                        </div>
+                    </div>
+
+    <script>
+        // 项目经历展开/折叠功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectHeaders = document.querySelectorAll('.project-header');
+            
+            projectHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('.toggle-icon');
+                    
+                    // 切换内容显示/隐藏
+                    content.classList.toggle('active');
+                    
+                    // 更新图标
+                    if (content.classList.contains('active')) {
+                        icon.textContent = '▲';
+                    } else {
+                        icon.textContent = '▼';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
